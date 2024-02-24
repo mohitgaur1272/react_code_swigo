@@ -10,6 +10,9 @@ COPY package*.json ./
 # Install dependencies
 RUN npm install
 
+#build image
+RUN npm build 
+
 # Copy the entire application to the working directory
 COPY . .
 
@@ -17,4 +20,4 @@ COPY . .
 EXPOSE 80
 
 # Command to run the application
-CMD ["npm", "run" "dev"]
+CMD ["npm", "run", "dev"]
