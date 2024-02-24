@@ -5,7 +5,7 @@ FROM node:20.11.1
 WORKDIR /app
 
 # Copy package.json and package-lock.json to the working directory
-COPY package*.json ./app
+COPY package*.json ./
 
 # Install dependencies
 RUN npm install
