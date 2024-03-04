@@ -20,4 +20,4 @@ jobs:
         run: npm install
 
       - name: run our application 
-        run : npm run dev 
+        run : sudo npm run dev 
