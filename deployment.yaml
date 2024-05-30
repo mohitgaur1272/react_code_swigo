@@ -1,0 +1,40 @@
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+ name: 30_may_deployment
+spec:
+ selector:
+   matchLabels:
+     run: 30_may_deployment
+ replicas: 1
+ template:
+   metadata:
+     labels:
+       run: 30_may_deployment
+   spec:
+     containers:
+     - name: new_container
+       image: $DOCKER_IMAGE_VERSION
+       ports:
+       - containerPort: 80
+       resources:
+         limits:
+           cpu: 100m
+         requests:
+           cpu: 50m
+
+```
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: 30_may_svc
+  labels:
+    run: 30_may_deployment
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+  selector:
+    run: 30_may_deployment
