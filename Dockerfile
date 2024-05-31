@@ -1,3 +1,4 @@
+
 # Use an official Node.js image as the base image
 FROM node:20.11.1
 
@@ -10,14 +11,15 @@ COPY package*.json ./
 # Install dependencies
 RUN npm install
 
-#build image
-RUN npm build 
-
 # Copy the entire application to the working directory
 COPY . .
 
+# Build the application
+#RUN npm run build
+
 # Expose port 80 to the outside world
-EXPOSE 80
+#EXPOSE 80
 
 # Command to run the application
 CMD ["npm", "run", "dev"]
+
